@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite --port 3212 --open",
+		"dev": "vite --port 4712 --open",
 		"cp": "cd scripts/commands && php create-page.php",
 		"pd": "cd scripts/commands && php parse-data.php",
 		"learn": "cd scripts/commands && php cmd-learn.php",
