@@ -5,7 +5,7 @@ This is a simple datapod template for a local site that displays data from a JSO
 ## Ruby installation
 
 - Windows: https://rubyinstaller.org/downloads
-- Ubuntu: 
+- Ubuntu: https://www.ruby-lang.org/en/documentation/installation/#apt
 
 ## Compatibility
 
