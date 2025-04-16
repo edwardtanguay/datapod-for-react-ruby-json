@@ -1,6 +1,6 @@
-# datapod-for-react-php-json
+# datapod-for-react-ruby-json
 
-This is a simple datapod template for a local site that displays data from a JSON file, which is created by a PHP script that parses a text file.
+This is a simple datapod template for a local site that displays data from a JSON file, which is created by a Ruby script that parses a text file.
 
 ## Compatibility
 
