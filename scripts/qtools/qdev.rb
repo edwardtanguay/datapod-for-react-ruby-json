@@ -1,4 +1,4 @@
-module Qdev
+module QDev
   # Prints a debug line with timestamp
   #
   # Example output:

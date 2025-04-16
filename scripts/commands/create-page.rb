@@ -1,3 +1,3 @@
-require_relative '../qtools/qdev'
+require_relative '../qtools/qcli'
 
-Qdev.debug("this will create a page in the React site")
+QCli.message("This will create a new page in the React site")
