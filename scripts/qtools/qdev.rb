@@ -1,4 +1,4 @@
-module QDev
+module Qdev
   # Prints a debug line with timestamp
   #
   # Example output:
@@ -12,4 +12,5 @@ module QDev
       p obj
     end
   end
+
 end
