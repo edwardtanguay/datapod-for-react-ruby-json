@@ -1,0 +1,214 @@
+- Ruby
+	- RubyGems
+		- the package manager for Ruby
+	- history
+		- 1993 Ruby created by Yukihiro Matsumoto
+		- 1995 released Ruby with free license, version 0.95
+		- 1996 Ruby 1.0 ****
+		- 2000 Ruby 1.6
+		- 2003 Ruby 1.8
+		- 2004 Ruby on Rails, Basecamp (formerly 37signals) founded by David Heinemeier Hansson (DHH)
+		- 2007 Ruby 1.9
+			- => (hash rockets) replaced by :
+			- introduced YARV (virtual machine)
+		- 2012 ISO standardization
+		- 2013 Ruby 2.0 ****
+		- 2014 Ruby 2.1
+		- 2016 Ruby 2.4
+		- 2017 Ruby 2.7
+			- most Ruby 2.7 code runs on Ruby 3.0+
+			- Ruby 2.7 introduced deprecation warnings; Ruby 3.0 changed behavior.
+			- use Ruby 2.7 as a bridge, it shows deprecation warnings
+		- 2020 Ruby 3.0 ****
+			- is backward-conscious
+		- 2021 Ruby 3.1
+		- 2022 Ruby 3.2
+		- 2023 Ruby 3.3
+		- 2024 Ruby 3.4
+		- major releases on December 25
+	- philosophy
+		- as simple as possible, with the least surprises
+	- conventions
+		- see style guide: https://rubystyle.guide
+		- one class per file
+		- all classes in one directory
+		- names of classes pascal case
+- Rails
+	- infos
+		- Rails is a Ruby gem
+	- history
+		- 2004 extracted Rails from Basecamp and published as opensource
+		- 2005 Rails 1.0 ****
+			- convention over configuration
+			- active record
+			- scaffolding
+		- 2007 Rails 2.0 **** 
+			- integrated into OS Leopard
+			- REST by default
+			- named routes
+			- HTTP authentication
+		- 2008 Rails 2.1
+		- 2009 Rails 2.3
+		- 2010 Rails 3.0 ****
+			- major rewrite
+			- ActiveModel
+		- 2011 Rails 3.1
+			- JQuery by default
+		- 2012 Rails 3.2
+			- better logging
+		- 2013 Rails 4.0 ****
+			- supported Ruby 2.0
+			- strong parameters
+		- 2014 Rails 4.1
+		- 2015 Rails 4.2
+		- 2016 Rails 5.0 ****
+			- WebSocket support
+		- 2017 Rails 5.1
+			- Yarn + Webpack
+		- 2018 Rails 5.2
+			- ActiveStorage
+			- Redis cache store
+		- 2019 Rails 6.0
+			- ActionText (Trix editor)
+		- 2020 Rails 6.1
+		- 2021 Rails 7.0
+			- Hotwire
+			- ESBuild
+		- 2023 Rails 7.1
+		- 2025 Rails 8.0
+	- use cases
+		- GitHub
+		- Twitter
+		- Airbnb
+		- Shopify
+- HOWTO: install Ruby on Rails on Window subsystem for Linux
+	- set developer mode
+		- PC settings
+			- Updates and Security
+			- For Developers
+		- control panel
+			- programs
+			- programs and functionalities (the install/deinstall window)
+			- activate or deactivate windows functionality
+			- subsystem for Linux
+			- you may have to reboot
+	- connect to sub-system
+		- search for bash and execute, install it
+			- (or Hyper)
+		- `wsl`
+	- install rvm
+		- Ruby Version Manager
+			- allows you to install multiple versions of ruby on the same system
+			- switch between ruby versions easily
+			- create and manage gemsets, isolated environments for Ruby gems, avoids version conflicts
+		- https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rvm-on-ubuntu-20-04
+		- `sudo apt update`
+		- `sudo apt install gnupg2`
+		- `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
+		- `source /home/test/.rvm/scripts/rvm`
+		- `rvm list`
+		- `rvm use 3.0.0`
+		- `rvm install 3.4.0` (2025-05-23)`
+		- get help
+			- `rvm --help`
+		- didn't need to use these:
+			- `rvm install ruby` (install latest version of Ruby)
+			- `gem install bundler`
+	- install Rails
+		- valid versions of Rails
+			- `gem search '^rails$' --all`
+		- install latest version
+			- `gem install rails -v 8.0.2` (2025-05-23)
+		- see version
+			- `rails -v`
+- HOWTO: install Ruby on Rails on Ubuntu
+	- go to website
+		- https://rvm.io
+	- install GPG keys (to verify correct files being downloaded) 
+		- `sudo apt update`
+		- `sudo apt install gnupg2`
+		- `gpg2 --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB`
+	- install RVM
+		- `\curl -sSL https://get.rvm.io | bash -s stable`
+			- note that this would also install the latest version of Ruby:
+				- `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
+			- note that this would also install the latest version of Ruby and Rails:
+				- `\curl -sSL https://get.rvm.io | bash -s stable --rails`
+		- activate rvm in current terminal
+			- `source /home/edward/.rvm/scripts/rvm` (copy this from the output from above command)
+	- list out the versions available of Ruby (the MRI versions are what you want - Matz’s Ruby Interpreter, official and most widely used Ruby interpreter)
+		- `rvm list known`
+			- it shows 3.0.0 as the latest
+	- install actual latest version
+		- `rvm get stable`
+		- `rvm install ruby --latest` 
+			- (you'll have to enter your Ubuntu password)
+			- seems to be installing 3.0.0 even though I was able to install 3.4.0 on Windows Subsystem for Linux
+			- got error
+		- `rvm install 3.4.0`
+			- installing
+			- finished in 30 seconds
+		- `ruby -v` shows 3.4.0
+			- trying to get it to list out 3.4.0
+				- reinstalled rvm with "--ruby": `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
+				- got error again
+		- `rvm list rubies`
+		- ok, the main thing is that we can install the latest version (here: 3.4.0) even if the highest listed as available is 3.0.0
+		- so, I want to see if I can install 3.0.0 along with 3.4.0 then switch between them
+			- `rvm install 3.0.0`
+				- got the same error
+			- `rvm install 3.3.0`
+				- ok, that worked
+			- now `rvm list rubies` shows both
+			- I can switch between them with
+				- `rvm use 3.3.0`
+				- `rvm use 3.4.0`
+	- install Bundler
+		- `gem install bundler`
+	- update RubyGems
+		- it asked to update so:
+			- `gem update --system 3.6.9`
+	- install Rails
+		- `gem install rails`
+		- `rails -v` shows 8.0.2
+	- show all gems installed
+		- `gem list` 
+- HOWTO: install Ruby on Rails on Mac
+	- home brew
+	- brew install rbenv ruby-build
+	- you may prefer to install rvm instead, the presenter of the tutorial preferred it
+	- `rvm install ruby`
+	- `gem install bundler`
+	- `gem install rails`
+	- `brew doctor` 
+- HOWTO: use Interactive Ruby
+	- `irb`
+- HOWTO: create a Rails project
+	- `rails new Project001`
+	- there are spelling conventions you have to follow	
+	- most important files
+		- Gemfile
+			- like package.json
+		- app/
+			- assets/
+				- js, css, images
+			- views/
+				- pages of applications
+			- controllers/
+				- process routes
+			- models/
+				- connect to database 
+		- config/
+			- database.yml
+			- routes.rb
+		- log/
+		- public/	
+	- `cd Project001`
+	- `rails server`
+		- Windows
+			- I got: Run `bundle install --gemfile C:/edward/projects/apps/RUBY/Project001/Gemfile` to install missing gems.
+			- `bundle install --gemfile C:/edward/projects/apps/RUBY/Project001/Gemfile`
+			- same error
+			- installing: https://rubyinstaller.org/downloads/
+				- installing: rubyinstaller-devkit-3.4.4-2-x64.exe
+
