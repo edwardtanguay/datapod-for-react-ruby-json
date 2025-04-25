@@ -1,8 +1,13 @@
 require_relative '../qtools/qdev'
+require_relative '../qtools/qcli'
 
 class Learn
+	def print_title(title) 
+		QCli.message(title)
+	end
+
 	def ex_001
-		QDev.debug("ex001")
+		self.print_title("EX001: Create a file")
 	end
 
 	def ex_002

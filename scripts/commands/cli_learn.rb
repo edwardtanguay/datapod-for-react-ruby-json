@@ -6,6 +6,6 @@ ARGV.each do |arg|
   if Learn.new.respond_to?(method_name)
     Learn.new.send(method_name)
   else
-    QDev.debug("Method #{method_name} not found")
+    QDev.debug("Method #{method_name} not found") 
   end
 end
