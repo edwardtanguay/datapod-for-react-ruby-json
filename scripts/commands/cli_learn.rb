@@ -1,8 +1,11 @@
 require_relative '../qtools/qdev'
 require_relative '../developer/learn'
 
-Learn.new.ex_001
-
 ARGV.each do |arg|
-  QDev.debug("Argument: #{arg}")
+  method_name = "ex_#{arg}"
+  if Learn.new.respond_to?(method_name)
+    Learn.new.send(method_name)
+  else
+    QDev.debug("Method #{method_name} not found")
+  end
 end
