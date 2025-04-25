@@ -6,3 +6,4 @@ dist
 .DS_Store
 scripts/env
 __pycache__/
+bash.exe.stackdump
