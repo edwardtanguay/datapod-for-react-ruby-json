@@ -29,10 +29,43 @@
 - Rails
 	- history
 		- 2004 extracted Rails from Basecamp and published as opensource
-		- 2005 Rails 1.0
-		
-		- 2007 integrated into OS Leopard
-		- 2013 supported Ruby 2.0
-		- 2017 Rails 5.0
+		- 2005 Rails 1.0 ****
+			- convention over configuration
+			- active record
+			- scaffolding
+		- 2007 Rails 2.0 **** 
+			- integrated into OS Leopard
+			- REST by default
+			- named routes
+			- HTTP authentication
+		- 2008 Rails 2.1
+		- 2009 Rails 2.3
+		- 2010 Rails 3.0 ****
+			- major rewrite
+			- ActiveModel
+		- 2011 Rails 3.1
+			- JQuery by default
+		- 2012 Rails 3.2
+			- better logging
+		- 2013 Rails 4.0 ****
+			- supported Ruby 2.0
+			- strong parameters
+		- 2014 Rails 4.1
+		- 2015 Rails 4.2
+		- 2016 Rails 5.0 ****
+			- WebSocket support
+		- 2017 Rails 5.1
+			- Yarn + Webpack
+		- 2018 Rails 5.2
+			- ActiveStorage
+			- Redis cache store
+		- 2019 Rails 6.0
+			- ActionText (Trix editor)
+		- 2020 Rails 6.1
+		- 2021 Rails 7.0
+			- Hotwire
+			- ESBuild
+		- 2023 Rails 7.1
+		- 2025 Rails 8.0
 
 
