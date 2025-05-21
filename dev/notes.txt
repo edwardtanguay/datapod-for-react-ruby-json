@@ -1,0 +1,38 @@
+- Ruby
+	- history
+		- 1993 Ruby created by Yukihiro Matsumoto
+		- 1995 released Ruby with free license, version 0.95
+		- 1996 Ruby 1.0 ****
+		- 2000 Ruby 1.6
+		- 2003 Ruby 1.8
+		- 2004 Ruby on Rails, Basecamp (formerly 37signals) founded by David Heinemeier Hansson (DHH)
+		- 2007 Ruby 1.9
+			- => (hash rockets) replaced by :
+			- introduced YARV (virtual machine)
+		- 2012 ISO standardization
+		- 2013 Ruby 2.0 ****
+		- 2014 Ruby 2.1
+		- 2016 Ruby 2.4
+		- 2017 Ruby 2.7
+			- most Ruby 2.7 code runs on Ruby 3.0+
+			- Ruby 2.7 introduced deprecation warnings; Ruby 3.0 changed behavior.
+			- use Ruby 2.7 as a bridge, it shows deprecation warnings
+		- 2020 Ruby 3.0 ****
+			- is backward-conscious
+		- 2021 Ruby 3.1
+		- 2022 Ruby 3.2
+		- 2023 Ruby 3.3
+		- 2024 Ruby 3.4
+		- major releases on December 25
+	- philosophy
+		- as simple as possible, with the least surprises
+- Rails
+	- history
+		- 2004 extracted Rails from Basecamp and published as opensource
+		- 2005 Rails 1.0
+		
+		- 2007 integrated into OS Leopard
+		- 2013 supported Ruby 2.0
+		- 2017 Rails 5.0
+
+
