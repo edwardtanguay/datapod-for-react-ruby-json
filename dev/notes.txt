@@ -67,5 +67,10 @@
 			- ESBuild
 		- 2023 Rails 7.1
 		- 2025 Rails 8.0
+	- use cases
+		- GitHub
+		- Twitter
+		- Airbnb
+		- Shopify
 
 
