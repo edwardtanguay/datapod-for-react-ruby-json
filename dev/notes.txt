@@ -168,4 +168,12 @@
 		- `rails -v` shows 8.0.2
 	- show all gems installed
 		- `gem list` 
+- HOWTO: install Ruby on Rails on Mac
+	- home brew
+	- brew install rbenv ruby-build
+	- you may prefer to install rvm instead, the presenter of the tutorial preferred it
+	- `rvm install ruby`
+	- `gem install bundler`
+	- `gem install rails`
+	- `brew doctor` 
 
