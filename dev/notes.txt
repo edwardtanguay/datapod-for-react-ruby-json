@@ -176,4 +176,7 @@
 	- `gem install bundler`
 	- `gem install rails`
 	- `brew doctor` 
+- HOWTO: use Interactive Ruby
+	- `irb`
+	
 

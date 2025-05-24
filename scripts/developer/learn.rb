@@ -17,6 +17,17 @@ class Learn
 	end
 
 	def ex_002
-		QDev.debug("ex002")
+		self.print_title("EX002: Various ways to print text")
+		puts "hello 1" # automatically adds a newline
+		print "hello 2\n" # prints without newline
+		p "hello 3" # prints everything including quotes and newlines
+		p "hello 4" # prints everything including quotes and newlines
+	end
+
+	def ex_003
+		self.print_title("EX003: String interpolation and concatenation")
+		age = 34
+		puts "Your age is #{age}" # string interpolation
+		puts "Your age is " + age.to_s # concatenation with conversion to string 
 	end
 end
