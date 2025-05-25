@@ -6,8 +6,13 @@ while stock > 0
 end
 
 # for
-for i in 1..5
-  puts "Iteration #{i}"
+for i in 1..5 # 1 to 5 inclusive
+  puts "Iteration inclusive: #{i}"
+end
+
+# for
+for i in 1...5 # 1 to 4 excluding 5
+  puts "Iteration exclusive: #{i}"
 end
 
 # each
