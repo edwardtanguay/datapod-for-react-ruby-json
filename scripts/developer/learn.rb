@@ -1,6 +1,8 @@
 require_relative '../qtools/qdev'
 require_relative '../qtools/qcli'
 
+SCORE = 100 # constant defined at the top level
+
 class Learn
 	def print_title(title) 
 		QCli.message(title)
@@ -25,9 +27,19 @@ class Learn
 	end
 
 	def ex_003
-		self.print_title("EX003: String interpolation and concatenation")
+		self.print_title("EX003: String interpolation and concatenation, and constant")
 		age = 34
 		puts "Your age is #{age}" # string interpolation
+		puts 'Your age is #{age}' # DOESN'T WORK: single quotes do not interpolate
+		age = 35
 		puts "Your age is " + age.to_s # concatenation with conversion to string 
+		# SCORE = 100 # this will raise an error because SCORE is a constant defined inside a method
+		puts "the score is #{SCORE}"	# prints the constant SCORE
+		# SCORE = 110 # This will raise an error because SCORE is a constant
 	end
+
+	def ex_004
+		ex_001 # call the first example to create the file
+	end
+
 end
