@@ -178,5 +178,32 @@
 	- `brew doctor` 
 - HOWTO: use Interactive Ruby
 	- `irb`
-	
+- HOWTO: create a Rails project
+	- `rails new Project001`
+	- there are spelling conventions you have to follow	
+	- most important files
+		- Gemfile
+			- like package.json
+		- app/
+			- assets/
+				- js, css, images
+			- views/
+				- pages of applications
+			- controllers/
+				- process routes
+			- models/
+				- connect to database 
+		- config/
+			- database.yml
+			- routes.rb
+		- log/
+		- public/	
+	- `cd Project001`
+	- `rails server`
+		- Windows
+			- I got: Run `bundle install --gemfile C:/edward/projects/apps/RUBY/Project001/Gemfile` to install missing gems.
+			- `bundle install --gemfile C:/edward/projects/apps/RUBY/Project001/Gemfile`
+			- same error
+			- installing: https://rubyinstaller.org/downloads/
+				- installing: rubyinstaller-devkit-3.4.4-2-x64.exe
 
