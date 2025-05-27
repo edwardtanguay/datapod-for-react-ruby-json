@@ -28,6 +28,11 @@
 		- major releases on December 25
 	- philosophy
 		- as simple as possible, with the least surprises
+	- conventions
+		- see style guide: https://rubystyle.guide
+		- one class per file
+		- all classes in one directory
+		- names of classes pascal case
 - Rails
 	- infos
 		- Rails is a Ruby gem
