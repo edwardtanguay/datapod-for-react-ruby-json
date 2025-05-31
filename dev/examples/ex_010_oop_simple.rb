@@ -8,6 +8,10 @@ class SmartFile
 		@file_path = file_path
 	end
 
+	def get_info
+		return "testing"
+	end
+
 end
 
 smartFile = SmartFile.new("example.txt")
@@ -15,4 +19,10 @@ puts "\n=== SMART FILE OBJECT ==="
 puts smartFile.file_path
 smartFile.file_path = "new_example.txt"
 puts smartFile.file_path
+puts "\n=== SMART FILE INFO ==="
+puts smartFile.get_info
+puts smartFile.object_id
+
+smartFile2 = SmartFile.new("example.txt")
+puts smartFile2.object_id
 
