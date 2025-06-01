@@ -22,3 +22,4 @@ order = Order.new([{ name: "Notebook", price: 8.00 }, { name: "Pen", price: 2.00
 puts order.total         # => 11.0
 # puts order.subtotal      # => Error: private method `subtotal' called
 # puts order.apply_tax(10) # => Error: private method `apply_tax' called
+
