@@ -2,6 +2,8 @@
 
 This is a simple datapod template for a local site that displays data from a JSON file, which is created by a Ruby script that parses a text file.
 
+PERMALINK: https://github.com/edwardtanguay/datapod-for-react-ruby-json
+
 ## Ruby installation
 
 - Windows: https://rubyinstaller.org/downloads
