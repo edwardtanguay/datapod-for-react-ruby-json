@@ -1,6 +1,7 @@
 require_relative '../qtools/qcli'
 require_relative '../qtools/qdev'
+require_relative '../classes/dynamic_file'
 
-QDev.debug("inside create-page script")
-QCli.message("This will create a new page in the React site")
+dynamic_file = DynamicFile.new('test.txt')
+dynamic_file.debug
 
