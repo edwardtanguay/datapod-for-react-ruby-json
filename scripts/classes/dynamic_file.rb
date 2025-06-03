@@ -1,4 +1,5 @@
 require_relative '../qtools/qfil'
+require_relative '../qtools/qcli'
 
 class DynamicFile
 	def initialize(pathAndFileName)
@@ -18,6 +19,7 @@ class DynamicFile
 			puts line
 		end
 		puts "---"
+		QCli.message("DynamicFile debug complete", "success")
 	end
 
 end
