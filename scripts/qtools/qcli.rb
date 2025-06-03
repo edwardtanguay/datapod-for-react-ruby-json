@@ -16,6 +16,7 @@ module QCli
     when "ball"
       puts "🟠 #{line}"
     when "check"
+    when "success"
       puts "✅ #{line}"
     else
       puts "bad kind: #{kind}"
