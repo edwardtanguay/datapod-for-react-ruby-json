@@ -15,8 +15,10 @@ module QCli
       puts "⏳ #{line}"
     when "ball"
       puts "🟠 #{line}"
-    else
+    when "check"
       puts "✅ #{line}"
+    else
+      puts "bad kind: #{kind}"
     end
   end
 end
