@@ -35,6 +35,13 @@ class SmartLine
 		puts "================================================"
 	end
 
+	def get_visble_tab_line
+		# return "[3]the line"
+		# "#{@num_of_tabs}
+		return "[TAB]" * @num_of_tabs + @core_line
+	end
+
+
 	private
 
 	def extract_markeridcode_from_line(line)

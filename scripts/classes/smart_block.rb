@@ -3,8 +3,6 @@ require_relative '../qtools/qdev'
 require_relative '../qtools/qfil'
 
 class SmartBlock
-	attr_accessor :blockTemplateIdCode, :markerBlockIdCode, :pre_tabs
-
 	def initialize(blockTemplateIdCode, markerBlockIdCode, pre_tabs = 0)
 		@blockTemplateIdCode = blockTemplateIdCode
 		@markerBlockIdCode = markerBlockIdCode
@@ -14,8 +12,16 @@ class SmartBlock
 
 	def init_state
 		puts "SmartBlock init_state"	
-		lines = QFil.get_lines_from_file("../templates/blockTemplate_#{@blockTemplateIdCode}.txt")
-		QDev.debug("SmartBlock init_state: lines.length = #{lines.length}")
+		@lines = QFil.get_lines_from_file("../templates/blockTemplate_#{@blockTemplateIdCode}.txt")
+		self.build_smart_lines
+	end
+	
+	def build_smart_lines
+		@smart_lines = []
+		@lines.each_with_index do |line, index|
+			smart_line = SmartLine.new(line, index + 1)
+			@smart_lines << smart_line
+		end
 	end
 
 	def add_to_smart_lines(smart_lines)
@@ -27,5 +33,8 @@ class SmartBlock
 		puts "  blockTemplateIdCode: #{@blockTemplateIdCode}"
 		puts "  markerBlockIdCode: #{@markerBlockIdCode}"
 		puts "  pre_tabs: #{@pre_tabs}"
+		@smart_lines.each do |smart_line|
+			puts smart_line.get_visble_tab_line
+		end
 	end
 end
