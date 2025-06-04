@@ -20,7 +20,7 @@ class PageBuilder
 		@dfMain.add_variable('pageCamel', @page_camel)
 		@dfMain.add_line_before_marker('importStatementArea', "importPage#{@page_pascal}", 'import { Page@@pagePascal } from "./pages/Page@@pagePascal.tsx";')
 		# @dfMain.add_block_before_marker('routerEntryArea', 'routerEntryProducts', 'routerEntryBlock')
-		@dfMain.parse
+		# @dfMain.parse
 		@dfMain.rerender_to_file
 	end
 end

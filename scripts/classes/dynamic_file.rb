@@ -63,7 +63,7 @@ class DynamicFile
 		if marker_index
 			pre_tabs = @smart_lines[marker_index].num_of_tabs
 			lineWithMarker = line + self.build_line_marker(markerLineIdCode)
-			@smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, pre_tabs))
+			@smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, pre_tabs, @variables))
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
 		end
@@ -81,12 +81,14 @@ class DynamicFile
 	end
 
 	def rerender_to_file
+		QDev.debug("Number of smart lines: #{@smart_lines.length}")
 		self.parse
 		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:rerender_line_for_file))
 	end
 
 	def parse
 		@smart_lines.each do |smart_line|
+			QDev.debug("ABOUT to search in line: #{smart_line.core_line} with #{smart_line.variables.length} variables")
 			smart_line.parse
 		end
 	end
