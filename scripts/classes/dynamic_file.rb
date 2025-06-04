@@ -21,6 +21,7 @@ class DynamicFile
 
 	# level 0 = line only
 	# level 1 = all info
+	# level 2 = tab + line
 	def debug(level = 0)
 		puts "number of lines = #{@lines.length}"
 		puts "number of smart lines = #{@smart_lines.length}"
@@ -33,6 +34,8 @@ class DynamicFile
 				smart_line.core_line
 			when 1
 				smart_line.debug
+			when 2
+				puts smart_line.get_visble_tab_line
 			end
 		end
 		puts "---"
@@ -59,6 +62,7 @@ class DynamicFile
 		if marker_index
 			pre_tabs = @smart_lines[marker_index].num_of_tabs
 			smart_block = SmartBlock.new(blockTemplateIdCode, markerBlockIdCode, pre_tabs)
+			smart_block.debug
 			@smart_lines = smart_block.add_to_smart_lines(marker_index,@smart_lines, pre_tabs)
 			QDev.debug(@smart_lines.length)
 		else
