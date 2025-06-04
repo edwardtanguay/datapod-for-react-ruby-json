@@ -18,12 +18,12 @@ class SmartBlock
 	
 	def build_smart_lines
 		@smart_lines = []
-		@smart_lines << SmartLine.new("# #{@blockTemplateIdCode}.begin")
+		@smart_lines << SmartLine.new("//##MARKER:#{@markerBlockIdCode}.begin##")
 		@lines.each_with_index do |line, index|
 			smart_line = SmartLine.new(line, index + 1)
 			@smart_lines << smart_line
 		end
-		@smart_lines << SmartLine.new("# #{@blockTemplateIdCode}.end")
+		@smart_lines << SmartLine.new("//##MARKER:#{@markerBlockIdCode}.end##")
 	end
 
 	def add_to_smart_lines(marker_index, smart_lines, pre_tabs)
