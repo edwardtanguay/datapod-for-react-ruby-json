@@ -31,10 +31,12 @@ const router = createBrowserRouter([
 				path: "about",
 				element: <PageAbout />,
 			},
+			//##MARKER:routerEntryProducts.begin##
 			{
 			path: "nnn",
 			element: <PageNnn />,
 			},
+			//##MARKER:routerEntryProducts.end##
 			//##MARKER:routerEntryArea##
 			{
 				path: "/",
