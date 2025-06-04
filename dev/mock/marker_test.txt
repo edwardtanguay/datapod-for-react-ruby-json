@@ -1,9 +1,11 @@
 import { Page404 } from "./pages/Page404.tsx";
 import { StoreProvider } from 'easy-peasy';
 import { store } from './store/store.ts';
+import { PageProducts } from "./pages/PageProducts.tsx";
 //##MARKER:importPage##
 
 class TheClass
 	str = "indented"
+	str2 = "another indented string"
 	//##MARKER:defineString##
 end

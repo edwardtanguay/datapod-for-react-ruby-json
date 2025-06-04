@@ -18,6 +18,10 @@ class SmartLine
 		@marker = self.extract_markeridcode_from_line(line)
 	end
 
+	def rerender_line_for_file
+		"\t" * @num_of_tabs + @core_line
+	end
+
 	def debug	
 		puts @core_line
 		puts "--------------------------"

@@ -42,7 +42,7 @@ class DynamicFile
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerIdCode }
 		if marker_index
 			# Insert the new line before the marker line
-			@smart_lines.insert(marker_index, SmartLine.new(line, 0))
+			@smart_lines.insert(marker_index, SmartLine.new(line, 0, @smart_lines[marker_index].num_of_tabs))
 		else
 			QCli.message("markerIdCode not found: #{markerIdCode}", "error")
 		end
@@ -50,7 +50,7 @@ class DynamicFile
 
 	def rerender_to_file
 		# Write the smart lines back to the file
-		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:line))
+		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:rerender_line_for_file))
 	end
 
 	private
