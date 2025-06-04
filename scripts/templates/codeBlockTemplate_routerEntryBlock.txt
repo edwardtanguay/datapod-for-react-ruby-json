@@ -1,0 +1,4 @@
+{
+	path: "nnn",
+	element: <PageNnn />,
+},
