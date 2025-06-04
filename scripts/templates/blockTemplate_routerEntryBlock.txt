@@ -1,4 +1,4 @@
 {
-	path: "nnn",
-	element: <PageNnn />,
+	path: "@@pageCamel",
+	element: <Page@@pagePascal />,
 },
