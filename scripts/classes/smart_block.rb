@@ -33,8 +33,10 @@ class SmartBlock
 		puts "  blockTemplateIdCode: #{@blockTemplateIdCode}"
 		puts "  markerBlockIdCode: #{@markerBlockIdCode}"
 		puts "  pre_tabs: #{@pre_tabs}"
+		puts "========================================="
 		@smart_lines.each do |smart_line|
 			puts smart_line.get_visble_tab_line
 		end
+		puts "========================================="
 	end
 end
