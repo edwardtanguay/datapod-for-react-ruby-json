@@ -17,9 +17,9 @@ class DynamicFile
 		puts "@pathAndFileName = \"#{@pathAndFileName}\""
 		puts "@lines ="
 		puts "---"
-		# @lines.each do |line|
-		# 	puts line
-		# end
+		@smart_lines.each do |smart_line|
+			smart_line.debug
+		end
 		puts "---"
 		QCli.message("DynamicFile debug complete", "success")
 	end
