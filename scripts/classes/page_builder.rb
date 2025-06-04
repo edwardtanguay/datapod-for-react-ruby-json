@@ -10,7 +10,7 @@ class PageBuilder
 
 	def create_page
 		self.modify_main_tsx	
-		@dfMain.rerender_to_file
+		# @dfMain.rerender_to_file
 	end
 
 	def modify_main_tsx
@@ -18,7 +18,9 @@ class PageBuilder
 		@dfMain.add_variable('pageTitle', @page_title)
 		@dfMain.add_variable('pagePascal', @page_pascal)
 		@dfMain.add_variable('pageCamel', @page_camel)
-		@dfMain.add_line_before_marker('importStatementArea', 'importPageProducts', 'import { PageProducts } from "./pages/PageProducts.tsx";')
+		@dfMain.parse
+		@dfMain.add_line_before_marker('importStatementArea', "importPage#{@page_pascal}", 'import { Page#{@page_pascal} } from "./pages/Page#{@page_pascal}.tsx";')
 		@dfMain.add_block_before_marker('routerEntryArea', 'routerEntryProducts', 'routerEntryBlock')
+		@dfMain.debug(3)
 	end
 end

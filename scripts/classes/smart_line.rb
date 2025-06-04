@@ -6,9 +6,10 @@ class SmartLine
 
 	# line_number = 0 means the line is added line, not an existing line in the file
 	# num_of_tabs = 0 means to get the indention from the line, otherwise it is the number of tabs to indent
-	def initialize(line, line_number = 0, num_of_tabs = 0)
+	def initialize(line, line_number = 0, num_of_tabs = 0, variables = {})
 		@line = line
 		@core_line = line.strip
+		@core_line_parsed = "nnn"
 		@line_number = line_number
 		if num_of_tabs == 0
 			@num_of_tabs = QStr.get_number_of_preceding_tabs(line)
@@ -16,10 +17,20 @@ class SmartLine
 			@num_of_tabs = num_of_tabs
 		end
 		@marker = self.extract_markeridcode_from_line(line)
+		@variables = variables || {}
+	end
+
+	def parse
+		QDev.debug("SmartLine.parse")
+		@variables.each do |name, value|
+			QDev.debug("SmartLine.parse: name = #{name}, value = #{value}")
+			@core_line_parsed = @core_line.sub(name, value)
+			QDev.debug(@core_line_parsed)
+		end
 	end
 
 	def rerender_line_for_file
-		"\t" * @num_of_tabs + @core_line
+		"\t" * @num_of_tabs + @core_line_parsed
 	end
 
 	def debug	

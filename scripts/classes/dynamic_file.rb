@@ -27,20 +27,27 @@ class DynamicFile
 	# level 0 = line only
 	# level 1 = all info
 	# level 2 = tab + line
+	# level 3 = variables
 	def debug(level = 0)
 		puts "number of lines = #{@lines.length}"
 		puts "number of smart lines = #{@smart_lines.length}"
 		puts "@pathAndFileName = \"#{@pathAndFileName}\""
 		puts "@lines ="
 		puts "---"
-		@smart_lines.each do |smart_line|
-			case level
-			when 0
-				smart_line.core_line
-			when 1
-				smart_line.debug
-			when 2
-				puts smart_line.get_visble_tab_line
+		if level == 3
+			@variables.each do |name, value|
+				puts "#{name} = #{value}"
+			end
+		else
+			@smart_lines.each do |smart_line|
+				case level
+				when 0
+					smart_line.core_line
+				when 1
+					smart_line.debug
+				when 2
+					puts smart_line.get_visble_tab_line
+				end
 			end
 		end
 		puts "---"
@@ -78,6 +85,12 @@ class DynamicFile
 		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:rerender_line_for_file))
 	end
 
+	def parse
+		@smart_lines.each do |smart_line|
+			smart_line.parse
+		end
+	end
+
 	private
 
 	def init_state
@@ -87,8 +100,10 @@ class DynamicFile
 	def build_smart_lines
 		@smart_lines = []
 		@lines.each_with_index do |line, index|
-			smart_line = SmartLine.new(line, index + 1)
+			smart_line = SmartLine.new(line, index + 1, 0, @variables)
 			@smart_lines << smart_line
 		end
 	end
+
+
 end
