@@ -26,7 +26,12 @@ class SmartBlock
 
 	def add_to_smart_lines(marker_index, smart_lines, pre_tabs)
 		new_smart_lines = []
-		smart_lines.each do |smart_line|
+		smart_lines.each_with_index do |smart_line, index|
+			if index == marker_index
+				@smart_lines.each do |block_line|
+					new_smart_lines << SmartLine.new(block_line.line, 0, pre_tabs)
+				end
+			end
 			new_smart_lines << smart_line
 		end
 		new_smart_lines << SmartLine.new("# testing")
