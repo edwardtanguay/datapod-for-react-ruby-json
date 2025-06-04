@@ -42,7 +42,7 @@ class DynamicFile
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerIdCode }
 		if marker_index
 			# Insert the new line before the marker line
-			@smart_lines.insert(marker_index, SmartLine.new(line))
+			@smart_lines.insert(marker_index, SmartLine.new(line, 0))
 		else
 			QCli.message("markerIdCode not found: #{markerIdCode}", "error")
 		end
