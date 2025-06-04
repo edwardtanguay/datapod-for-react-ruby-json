@@ -54,7 +54,7 @@ class DynamicFile
 		end
 	end
 
-	def add_block_after_marker(markerAreaIdCode, markerBlockIdCode, blockTemplateIdCode)
+	def add_block_before_marker(markerAreaIdCode, markerBlockIdCode, blockTemplateIdCode)
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerAreaIdCode }
 		if marker_index
 			pre_tabs = @smart_lines[marker_index].num_of_tabs

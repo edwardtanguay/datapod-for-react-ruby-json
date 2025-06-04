@@ -8,6 +8,15 @@ class SmartBlock
 		@blockTemplateIdCode = blockTemplateIdCode
 		@markerBlockIdCode = markerBlockIdCode
 		@pre_tabs = pre_tabs
+		self.init_state
+	end
+
+	def init_state
+		puts "SmartBlock init_state"	
+	end
+
+	def add_to_smart_lines(smart_lines)
+		puts "SmartBlock add_to_smart_lines"
 	end
 
 	def debug
