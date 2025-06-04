@@ -2,14 +2,14 @@ require_relative '../qtools/qstr'
 require_relative '../qtools/qdev'
 
 class SmartLine 
-	attr_accessor :line, :core_line, :line_number, :num_of_tabs, :marker
+	attr_accessor :line, :core_line, :line_number, :num_of_tabs, :marker, :core_line_parsed, :variables
 
 	# line_number = 0 means the line is added line, not an existing line in the file
 	# num_of_tabs = 0 means to get the indention from the line, otherwise it is the number of tabs to indent
 	def initialize(line, line_number = 0, num_of_tabs = 0, variables = {})
 		@line = line
 		@core_line = line.strip
-		# @core_line_parsed = "nnn"
+		@core_line_parsed = "nnn"
 		@line_number = line_number
 		if num_of_tabs == 0
 			@num_of_tabs = QStr.get_number_of_preceding_tabs(line)
@@ -21,18 +21,20 @@ class SmartLine
 	end
 
 	def parse
+		@core_line_parsed = @core_line
 		@variables.each do |name, value|
-			if @core_line.include?(name)
-				# If the core line contains the variable name, replace it with the value
-				@core_line_parsed = @core_line.gsub(name, value)
-				QDev.debug("SmartLine: Replaced variable '#{name}' with '#{value}' in line: #{@core_line}")
+			varMarker = "@@" + name
+			varMarker = "a"
+			if @core_line.include?(varMarker)
+				QDev.debug("Replacing variable marker: #{varMarker} with value: #{value} in line: #{@core_line}")
+				@core_line_parsed = @core_line.gsub(varMarker, value)
 			end
 		end
 	end
 
 	def rerender_line_for_file
-		# "\t" * @num_of_tabs + @core_line_parsed
-		"\t" * @num_of_tabs + @core_line
+		"\t" * @num_of_tabs + @core_line_parsed
+		# "\t" * @num_of_tabs + @core_line
 	end
 
 	def debug	
