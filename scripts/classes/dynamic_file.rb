@@ -2,6 +2,7 @@ require_relative '../qtools/qfil'
 require_relative '../qtools/qcli'
 require_relative '../qtools/qdev'
 require_relative 'smart_line'
+require_relative 'smart_block'
 
 # DynamicFile reads a file into line
 # then into SmartLines
@@ -45,8 +46,9 @@ class DynamicFile
 	def add_line_before_marker(markerAreaIdCode, markerLineIdCode, line)
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerAreaIdCode }
 		if marker_index
+			pre_tabs = @smart_lines[marker_index].num_of_tabs
 			lineWithMarker = line + self.build_line_marker(markerLineIdCode)
-			@smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, @smart_lines[marker_index].num_of_tabs))
+			@smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, pre_tabs))
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
 		end
@@ -55,9 +57,9 @@ class DynamicFile
 	def add_block_after_marker(markerAreaIdCode, markerBlockIdCode, blockTemplateIdCode)
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerAreaIdCode }
 		if marker_index
-			# lineWithMarker = line + self.build_line_marker(markerLineIdCode)
-			# @smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, @smart_lines[marker_index].num_of_tabs))
-			QDev.debug("Adding block after marker: #{markerAreaIdCode} with block id: #{markerBlockIdCode} and template id: #{blockTemplateIdCode}")
+			pre_tabs = @smart_lines[marker_index].num_of_tabs
+			smart_block = SmartBlock(blockTemplateIdCode, markerBlockIdCode, pre_tabs)
+			smart_block.debug
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
 		end
