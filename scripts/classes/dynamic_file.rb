@@ -81,13 +81,11 @@ class DynamicFile
 	end
 
 	def rerender_to_file
-		# Write the smart lines back to the file
+		self.parse
 		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:rerender_line_for_file))
 	end
 
 	def parse
-		self.init_state
-		self.build_smart_lines
 		@smart_lines.each do |smart_line|
 			smart_line.parse
 		end
