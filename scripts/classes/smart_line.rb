@@ -21,11 +21,8 @@ class SmartLine
 	end
 
 	def parse
-		QDev.debug("SmartLine.parse")
 		@variables.each do |name, value|
-			QDev.debug("SmartLine.parse: name = #{name}, value = #{value}")
-			@core_line_parsed = @core_line.sub(name, value)
-			QDev.debug(@core_line_parsed)
+			@core_line_parsed = @core_line.gsub(name, value)
 		end
 	end
 

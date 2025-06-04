@@ -16,8 +16,6 @@ class DynamicFile
 	def initialize(pathAndFileName)
 		@pathAndFileName = pathAndFileName
 		@variables = {}
-		self.init_state
-		self.build_smart_lines
 	end
 
 	def add_variable(name, value)
@@ -86,6 +84,8 @@ class DynamicFile
 	end
 
 	def parse
+		self.init_state
+		self.build_smart_lines
 		@smart_lines.each do |smart_line|
 			smart_line.parse
 		end
