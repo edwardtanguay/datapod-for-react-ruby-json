@@ -24,8 +24,12 @@ class SmartBlock
 		end
 	end
 
-	def add_to_smart_lines(smart_lines)
-		puts "SmartBlock add_to_smart_lines"
+	def add_to_smart_lines(marker_index, smart_lines, pre_tabs)
+		new_smart_lines = []
+		@smart_lines.each do |smart_line|
+			new_smart_lines << smart_line
+		end
+		return new_smart_lines
 	end
 
 	def debug
