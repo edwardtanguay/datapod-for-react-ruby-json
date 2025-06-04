@@ -74,7 +74,7 @@ class DynamicFile
 		if marker_index
 			pre_tabs = @smart_lines[marker_index].num_of_tabs
 			smart_block = SmartBlock.new(blockTemplateIdCode, markerBlockIdCode, pre_tabs)
-			@smart_lines = smart_block.add_to_smart_lines(marker_index,@smart_lines, pre_tabs)
+			@smart_lines = smart_block.add_to_smart_lines(marker_index,@smart_lines, pre_tabs, @variables)
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
 		end
