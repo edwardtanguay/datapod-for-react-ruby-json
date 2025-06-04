@@ -7,7 +7,7 @@ module QDev
     timestamp = Time.now.strftime('%Y-%m-%d %H:%M:%S')
 
     if obj.is_a?(String)
-      puts "🛠️  #{timestamp} - #{obj}"
+      puts "⚒️  #{timestamp} - #{obj}"
     else
       p obj
     end

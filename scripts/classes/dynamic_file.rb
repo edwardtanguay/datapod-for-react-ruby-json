@@ -1,5 +1,6 @@
 require_relative '../qtools/qfil'
 require_relative '../qtools/qcli'
+require_relative '../qtools/qdev'
 require_relative 'smart_line'
 
 # DynamicFile reads a file into line
@@ -42,12 +43,23 @@ class DynamicFile
 	end
 
 	def add_line_before_marker(markerAreaIdCode, markerLineIdCode, line)
-		# Find the index of the marker line
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerAreaIdCode }
 		if marker_index
-			# Insert the new line before the marker line
 			lineWithMarker = line + self.build_line_marker(markerLineIdCode)
 			@smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, @smart_lines[marker_index].num_of_tabs))
+		else
+			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
+		end
+	end
+
+	def add_block_after_marker(markerAreaIdCode, markerBlockIdCode, blockTemplateIdCode)
+		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerAreaIdCode }
+		if marker_index
+			# lineWithMarker = line + self.build_line_marker(markerLineIdCode)
+			# @smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, @smart_lines[marker_index].num_of_tabs))
+			QDev.debug(markerBlockIdCode)
+			QDev.debug("block after marker: #{markerAreaIdCode} with block id: #{markerBlockIdCode} and template id: #{blockTemplateIdCode}")
+			QDev.debug("Adding block after marker: #{markerAreaIdCode} with block id: #{markerBlockIdCode} and template id: #{blockTemplateIdCode}")
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
 		end
