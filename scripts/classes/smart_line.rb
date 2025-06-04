@@ -22,7 +22,11 @@ class SmartLine
 
 	def parse
 		@variables.each do |name, value|
-			@core_line_parsed = @core_line.gsub(name, value)
+			if @core_line.include?(name)
+				# If the core line contains the variable name, replace it with the value
+				@core_line_parsed = @core_line.gsub(name, value)
+				QDev.debug("SmartLine: Replaced variable '#{name}' with '#{value}' in line: #{@core_line}")
+			end
 		end
 	end
 

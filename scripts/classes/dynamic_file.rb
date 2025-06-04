@@ -16,6 +16,8 @@ class DynamicFile
 	def initialize(pathAndFileName)
 		@pathAndFileName = pathAndFileName
 		@variables = {}
+		self.init_state
+		self.build_smart_lines
 	end
 
 	def add_variable(name, value)
