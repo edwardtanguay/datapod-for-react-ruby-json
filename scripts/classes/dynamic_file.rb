@@ -11,17 +11,35 @@ class DynamicFile
 		self.build_smart_lines
 	end
 
-	def debug
+	# level 0 = line only
+	# level 1 = all info
+	def debug(level = 0)
 		puts "number of lines = #{@lines.length}"
 		puts "number of smart lines = #{@smart_lines.length}"
 		puts "@pathAndFileName = \"#{@pathAndFileName}\""
 		puts "@lines ="
 		puts "---"
 		@smart_lines.each do |smart_line|
-			smart_line.debug
+			case level
+			when 0
+				puts smart_line.core_line
+			when 1
+				puts smart_line.debug
+			end
 		end
 		puts "---"
 		QCli.message("DynamicFile debug complete", "success")
+	end
+
+	def add_line_before_marker(markerIdCode, line)
+		# Find the index of the marker line
+		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerIdCode }
+		if marker_index
+			# Insert the new line before the marker line
+			@smart_lines.insert(marker_index, SmartLine.new(line))
+		else
+			QCli.message("markerIdCode not found: #{markerIdCode}", "error")
+		end
 	end
 
 	private

@@ -1,7 +1,8 @@
 class SmartLine 
 	attr_accessor :line, :core_line, :line_number, :num_of_tabs, :marker
 
-	def initialize(line, line_number)
+	# line_number = 0 means the line is added line, not an existing line in the file
+	def initialize(line, line_number = 0)
 		@line = line
 		@core_line = line.strip
 		@line_number = line_number
