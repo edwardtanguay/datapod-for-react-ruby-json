@@ -57,8 +57,6 @@ class DynamicFile
 		if marker_index
 			# lineWithMarker = line + self.build_line_marker(markerLineIdCode)
 			# @smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, @smart_lines[marker_index].num_of_tabs))
-			QDev.debug(markerBlockIdCode)
-			QDev.debug("block after marker: #{markerAreaIdCode} with block id: #{markerBlockIdCode} and template id: #{blockTemplateIdCode}")
 			QDev.debug("Adding block after marker: #{markerAreaIdCode} with block id: #{markerBlockIdCode} and template id: #{blockTemplateIdCode}")
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
