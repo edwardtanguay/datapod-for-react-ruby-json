@@ -9,10 +9,14 @@ import { Page404 } from "./pages/Page404.tsx";
 import { StoreProvider } from 'easy-peasy';
 import { store } from './store/store.ts';
 import { PageProducts } from "./pages/PageProducts.tsx"; //##MARKER:importPageProducts##
+import { PageProducts } from "./pages/PageProducts.tsx"; //##MARKER:importPageProducts##
+import { PageProducts } from "./pages/PageProducts.tsx"; //##MARKER:importPageProducts##
 //##MARKER:importStatementArea##
 
 const router = createBrowserRouter([
 	{
+		str2 = "another indented string" //##MARKER:defineStringTest##
+		str2 = "another indented string" //##MARKER:defineStringTest##
 		str2 = "another indented string" //##MARKER:defineStringTest##
 		//##MARKER:defineString##
 		path: "/",
