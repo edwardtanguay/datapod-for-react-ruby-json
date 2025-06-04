@@ -81,14 +81,12 @@ class DynamicFile
 	end
 
 	def rerender_to_file
-		QDev.debug("Number of smart lines: #{@smart_lines.length}")
 		self.parse
 		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:rerender_line_for_file))
 	end
 
 	def parse
 		@smart_lines.each do |smart_line|
-			QDev.debug("ABOUT to search in line: #{smart_line.core_line} with #{smart_line.variables.length} variables")
 			smart_line.parse
 		end
 	end

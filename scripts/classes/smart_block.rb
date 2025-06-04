@@ -25,12 +25,12 @@ class SmartBlock
 		@smart_lines << SmartLine.new("//##MARKER:#{@markerBlockIdCode}.end##")
 	end
 
-	def add_to_smart_lines(marker_index, smart_lines, pre_tabs)
+	def add_to_smart_lines(marker_index, smart_lines, pre_tabs, variables = {})
 		new_smart_lines = []
 		smart_lines.each_with_index do |smart_line, index|
 			if index == marker_index
 				@smart_lines.each do |smart_line|
-					new_smart_lines << SmartLine.new(smart_line.line, 0, smart_line.num_of_tabs + pre_tabs)
+					new_smart_lines << SmartLine.new(smart_line.line, 0, smart_line.num_of_tabs + pre_tabs, variables)
 				end
 			end
 			new_smart_lines << smart_line
