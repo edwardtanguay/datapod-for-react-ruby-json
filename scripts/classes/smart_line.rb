@@ -9,7 +9,7 @@ class SmartLine
 	def initialize(line, line_number = 0, num_of_tabs = 0, variables = {})
 		@line = line
 		@core_line = line.strip
-		@core_line_parsed = "nnn"
+		# @core_line_parsed = "nnn"
 		@line_number = line_number
 		if num_of_tabs == 0
 			@num_of_tabs = QStr.get_number_of_preceding_tabs(line)
@@ -31,7 +31,8 @@ class SmartLine
 	end
 
 	def rerender_line_for_file
-		"\t" * @num_of_tabs + @core_line_parsed
+		# "\t" * @num_of_tabs + @core_line_parsed
+		"\t" * @num_of_tabs + @core_line
 	end
 
 	def debug	
