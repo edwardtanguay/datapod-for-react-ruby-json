@@ -37,12 +37,16 @@ class DynamicFile
 		QCli.message("DynamicFile debug complete", "success")
 	end
 
+	def build_line_marker(markerLineIdCode)
+		" //##MARKER:#{markerLineIdCode}##"
+	end
+
 	def add_line_before_marker(markerAreaIdCode, markerLineIdCode, line)
 		# Find the index of the marker line
 		marker_index = @smart_lines.index { |smart_line| smart_line.marker == markerAreaIdCode }
 		if marker_index
 			# Insert the new line before the marker line
-			lineWithMarker = line + " //##MARKER:#{markerLineIdCode}##"
+			lineWithMarker = line + self.build_line_marker(markerLineIdCode)
 			@smart_lines.insert(marker_index, SmartLine.new(lineWithMarker, 0, @smart_lines[marker_index].num_of_tabs))
 		else
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
