@@ -7,7 +7,7 @@ class SmartLine
 		@core_line = line.strip
 		@line_number = line_number
 		@num_of_tabs = line.count("\t")
-		@marker = "testing"
+		@marker = self.extract_markeridcode_from_line(line)
 	end
 
 	def debug	
@@ -15,7 +15,30 @@ class SmartLine
 		puts "--------------------------"
 		puts "line_number = #{@line_number}"
 		puts "num_of_tabs = #{@num_of_tabs}"
-		puts "marker = #{@marker}"
+		if @marker.nil?
+			puts "(no marker)"
+		else
+			puts "marker = #{@marker}"
+		end
 		puts "================================================"
+	end
+
+	private
+
+	def extract_markeridcode_from_line(line)
+		m = line.match(/##MARKER:(.*?)##/)
+		return m[1].strip if m
+		nil
+	end
+
+	def extract_marker_from_line(line)
+		if line.include?("//##MARKER:")
+			# Extract the marker ID code from the line
+			marker_start = line.index("//##MARKER:") + "//##MARKER:".length
+			marker_end = line.index("##", marker_start)
+			@marker = line[marker_start...marker_end].strip if marker_end
+		else
+			@marker = nil
+		end
 	end
 end

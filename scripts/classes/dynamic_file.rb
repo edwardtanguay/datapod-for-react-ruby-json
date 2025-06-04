@@ -22,9 +22,9 @@ class DynamicFile
 		@smart_lines.each do |smart_line|
 			case level
 			when 0
-				puts smart_line.core_line
+				smart_line.core_line
 			when 1
-				puts smart_line.debug
+				smart_line.debug
 			end
 		end
 		puts "---"
@@ -55,5 +55,4 @@ class DynamicFile
 			@smart_lines << smart_line
 		end
 	end
-
 end
