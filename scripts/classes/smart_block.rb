@@ -22,8 +22,6 @@ class SmartBlock
 		@lines.each_with_index do |line, index|
 			smart_line = SmartLine.new(line, index + 1)
 			@smart_lines << smart_line
-			smart_line.num_of_tabs += 10
-			smart_line.core_line = "nnn"
 			QDev.debug(smart_line.num_of_tabs)
 		end
 		@smart_lines << SmartLine.new("//##MARKER:#{@markerBlockIdCode}.end##")
@@ -33,8 +31,8 @@ class SmartBlock
 		new_smart_lines = []
 		smart_lines.each_with_index do |smart_line, index|
 			if index == marker_index
-				@smart_lines.each do |block_line|
-					new_smart_lines << SmartLine.new(block_line.line, 0, pre_tabs)
+				@smart_lines.each do |smart_line|
+					new_smart_lines << SmartLine.new(smart_line.line, 0, smart_line.num_of_tabs + pre_tabs)
 				end
 			end
 			new_smart_lines << smart_line
