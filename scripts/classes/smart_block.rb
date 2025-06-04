@@ -11,7 +11,6 @@ class SmartBlock
 	end
 
 	def init_state
-		puts "SmartBlock init_state"	
 		@lines = QFil.get_lines_from_file("../templates/blockTemplate_#{@blockTemplateIdCode}.txt")
 		self.build_smart_lines
 	end
@@ -22,7 +21,6 @@ class SmartBlock
 		@lines.each_with_index do |line, index|
 			smart_line = SmartLine.new(line, index + 1)
 			@smart_lines << smart_line
-			QDev.debug(smart_line.num_of_tabs)
 		end
 		@smart_lines << SmartLine.new("//##MARKER:#{@markerBlockIdCode}.end##")
 	end
