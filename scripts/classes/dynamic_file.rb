@@ -2,6 +2,12 @@ require_relative '../qtools/qfil'
 require_relative '../qtools/qcli'
 require_relative 'smart_line'
 
+# DynamicFile reads a file into line
+# then into SmartLines
+# these SmartLines identifiy markers
+# Smartlines can be added before markers, etc.
+# then SmartLines can be written back to the file
+
 class DynamicFile
 	attr_reader :lines, :smart_lines
 
@@ -40,6 +46,11 @@ class DynamicFile
 		else
 			QCli.message("markerIdCode not found: #{markerIdCode}", "error")
 		end
+	end
+
+	def rerender_to_file
+		# Write the smart lines back to the file
+		QFil.write_lines_to_file(@pathAndFileName, @smart_lines.map(&:line))
 	end
 
 	private
