@@ -24,9 +24,7 @@ class SmartLine
 		@core_line_parsed = @core_line
 		@variables.each do |name, value|
 			varMarker = "@@" + name
-			QDev.debug("Searching for variable marker: [#{varMarker}] in line: #{@core_line}")
 			if @core_line.include?(varMarker)
-				QDev.debug("Replacing variable marker: [#{varMarker}] with value: [#{value}] in line: #{@core_line}")
 				@core_line_parsed = @core_line.gsub(varMarker, value)
 			end
 		end
