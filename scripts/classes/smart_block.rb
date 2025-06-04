@@ -37,7 +37,6 @@ class SmartBlock
 			end
 			new_smart_lines << smart_line
 		end
-		new_smart_lines << SmartLine.new("# testing")
 		return new_smart_lines
 	end
 
