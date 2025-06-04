@@ -13,7 +13,8 @@ class PageBuilder
 	end
 
 	def modify_main_tsx
-		@dfMain = DynamicFile.new('../../src/main.tsx')
+		# @dfMain = DynamicFile.new('../../src/main.tsx')
+		@dfMain = DynamicFile.new('../../dev/mock/simple_test.txt')
 		@dfMain.add_variable('pageTitle', @page_title)
 		@dfMain.add_variable('pagePascal', @page_pascal)
 		@dfMain.add_variable('pageCamel', @page_camel)
