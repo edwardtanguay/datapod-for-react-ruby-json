@@ -12,6 +12,7 @@ import { store } from './store/store.ts';
 
 const router = createBrowserRouter([
 	{
+		//##MARKER:defineString##
 		path: "/",
 		errorElement: <Page404 />,
 		element: <App />,
