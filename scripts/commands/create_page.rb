@@ -1,7 +1,7 @@
 require_relative '../qtools/qcli'
 require_relative '../qtools/qdev'
 require_relative '../classes/dynamic_file'
-require_relative './page_builder'
+require_relative '../classes/page_builder'
 
 if ARGV.length < 1
   QCli.message("Usage: npm run cp \"More Info\"", "info")
