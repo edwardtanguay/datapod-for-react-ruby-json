@@ -9,8 +9,8 @@ class PageBuilder
 	end
 
 	def create_page
-		self.add_code_to_main_tsx	
-		self.add_code_to_nav_tsx	
+		# self.add_code_to_main_tsx	
+		# self.add_code_to_nav_tsx	
 	end
 
 	def add_code_to_main_tsx
