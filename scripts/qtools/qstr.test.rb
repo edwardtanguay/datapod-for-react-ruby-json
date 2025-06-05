@@ -110,3 +110,22 @@ class TestForceKebabNotation < Minitest::Test
 		end
 	end
 end
+
+class TestGetNumberOfPrecedingTabs < Minitest::Test
+	def test_get_number_of_preceding_tabs
+		test_cases = [
+			{expected: 0, input: "Hello World"},
+			{expected: 1, input: "\tHello World"},
+			{expected: 2, input: "\t\tHello World"},
+			{expected: 0, input: "   Hello World"},
+			{expected: 3, input: "\t\t\tHello World"},
+			{expected: 3, input: "\t\t\tHello World\t"},
+			{expected: 3, input: "\t\t\tHello\tWorld\t"}
+		]
+
+		test_cases.each do |test_case|
+			assert_equal test_case[:expected], QStr.get_number_of_preceding_tabs(test_case[:input])
+		end
+	end
+end
+

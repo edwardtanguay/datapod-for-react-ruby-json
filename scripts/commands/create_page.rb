@@ -1,6 +1,14 @@
 require_relative '../qtools/qcli'
 require_relative '../qtools/qdev'
+require_relative '../classes/page_builder'
 
-QDev.debug("inside create-page script")
-QCli.message("This will create a new page in the React site")
+if ARGV.length < 1
+  QCli.message("Usage: npm run cp \"More Info\"", "info")
+  exit
+else
+	page_title = ARGV[0];
+	page = PageBuilder.new(page_title)
+	page.create_page
+end
+
 

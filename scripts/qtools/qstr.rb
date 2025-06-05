@@ -89,4 +89,9 @@ module QStr
 		r = r.gsub(' ', '_')
 		r	
 	end
+
+	def self.get_number_of_preceding_tabs(line)
+		tabs = line[/\A\t*/].to_s.length
+		tabs
+	end
 end
