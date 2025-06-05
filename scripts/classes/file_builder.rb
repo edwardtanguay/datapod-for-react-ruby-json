@@ -24,7 +24,7 @@ class FileBuilder
 
 	def render_to_file
 		self.parse
-		QFil.write_lines_to_file(@fileTemplatePathAndFileName, @smart_lines.map(&:rerender_line_for_file))
+		QFil.write_lines_to_file(@newPagePathAndFileName, @smart_lines.map(&:rerender_line_for_file))
 	end
 
 	def parse
