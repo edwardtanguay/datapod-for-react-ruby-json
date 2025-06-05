@@ -9,12 +9,20 @@ class PageBuilder
 	end
 
 	def create_page
-		self.modify_main_tsx	
+		self.add_code_to_main_tsx	
 	end
 
-	def modify_main_tsx
+	def add_code_to_nav_tsx
+		@dfMain = DynamicFile.new('../../src/components/Nav.tsx')
+		@dfMain.add_variable('pageTitle', @page_title)
+		@dfMain.add_variable('pagePascal', @page_pascal)
+		@dfMain.add_variable('pageCamel', @page_camel)
+		@dfMain.add_block_before_marker('navEntryArea', "navEntry#{@page_pascal}", 'navEntryBlock')
+		@dfMain.rerender_to_file
+	end
+
+	def add_code_to_main_tsx
 		@dfMain = DynamicFile.new('../../src/main.tsx')
-		# @dfMain = DynamicFile.new('../../dev/mock/simple_test.txt')
 		@dfMain.add_variable('pageTitle', @page_title)
 		@dfMain.add_variable('pagePascal', @page_pascal)
 		@dfMain.add_variable('pageCamel', @page_camel)

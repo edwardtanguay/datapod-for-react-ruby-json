@@ -18,6 +18,7 @@ const menuItems = [
 		idCode: "about",
 		title: "About",
 	},
+	//##MARKER:navEntryArea##
 ];
 
 export const Nav = () => {
