@@ -23,7 +23,6 @@ module QFil
 			File.open(file_path, 'w') do |file|
 				lines.each { |line| file.puts(line) }
 			end
-			QCli.message("File written successfully to #{file_path}", "success")
 		rescue => error
 			QCli.message("Error writing to file at #{file_path}: #{error.message}", "error")
 		end

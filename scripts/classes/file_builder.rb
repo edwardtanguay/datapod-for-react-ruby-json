@@ -15,7 +15,6 @@ class FileBuilder
 	def init_state
 		@lines = QFil.get_lines_from_file(@fileTemplatePathAndFileName)
 		self.build_smart_lines
-		self.debug
 	end
 	
 	def add_variable(name, value)
