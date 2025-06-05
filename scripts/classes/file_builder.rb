@@ -3,15 +3,17 @@ require_relative '../qtools/qfil'
 require_relative '../classes/dynamic_file'
 
 class FileBuilder
-	def initialize(fileTemplate, pathAndFileName)
+	def initialize(fileTemplate, newPagePathAndFileName)
 		@fileTemplate = fileTemplate
-		@pathAndFileName = pathAndFileName
+		@newPagePathAndFileName = newPagePathAndFileName
+		@fileTemplatePathAndFileName = "../templates/fileTemplate_#{@fileTemplate}.txt"
+
 		@variables = {}
 		self.init_state
 	end
 
 	def init_state
-		@lines = QFil.get_lines_from_file(@fileTemplate)
+		@lines = QFil.get_lines_from_file(@fileTemplatePathAndFileName)
 		# self.build_smart_lines
 		self.debug
 	end
@@ -30,11 +32,12 @@ class FileBuilder
 		puts "  pathAndFileName: #{@pathAndFileName}"
 		puts "  number of lines: #{@lines.length}"
 		if level == 0
+			puts "========================================="
 			@lines.each do |line|
 				puts line
 			end
+			puts "========================================="
 		end
-		puts "========================================="
 	end
 
 end
