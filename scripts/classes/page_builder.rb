@@ -18,7 +18,7 @@ class PageBuilder
 
 	def create_page_tsx
 		@fbPage = FileBuilder.new("newPage", "../../src/pages/Page#{@page_pascal}.tsx")
-		@dfMain.add_variable('pagePascal', @page_pascal)
+		@fbPage.add_variable('pagePascal', @page_pascal)
 		@fbPage.add_variable('pageCamel', @page_camel)
 		@fbPage.add_variable('pageText', @page_text)
 		@fbPage.render_to_file
