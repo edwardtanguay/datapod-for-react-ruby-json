@@ -7,6 +7,7 @@ class PageBuilder
 		@page_title = page_title
 		@page_pascal = QStr.force_pascal_notation(page_title)
 		@page_camel = QStr.force_camel_notation(page_title)
+		@page_text = QStr.force_text_notation(page_title)
 	end
 
 	def create_page
@@ -18,7 +19,7 @@ class PageBuilder
 	def create_page_tsx
 		@fbPage = FileBuilder.new("newPage", "../../src/pages/Page#{@page_pascal}.tsx")
 		@fbPage.add_variable('pageCamel', @page_camel)
-		@fbPage.add_variable('page_text', @page_text)
+		@fbPage.add_variable('pageText', @page_text)
 		@fbPage.render_to_file
 	end
 
