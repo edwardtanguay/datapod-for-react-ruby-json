@@ -14,7 +14,7 @@ class FileBuilder
 
 	def init_state
 		@lines = QFil.get_lines_from_file(@fileTemplatePathAndFileName)
-		# self.build_smart_lines
+		self.build_smart_lines
 		self.debug
 	end
 	
@@ -23,7 +23,14 @@ class FileBuilder
 	end
 
 	def render_to_file
-		
+		self.parse
+		QFil.write_lines_to_file(@fileTemplatePathAndFileName, @smart_lines.map(&:rerender_line_for_file))
+	end
+
+	def parse
+		@smart_lines.each do |smart_line|
+			smart_line.parse
+		end
 	end
 
 	def debug(level = 0)
@@ -37,6 +44,16 @@ class FileBuilder
 				puts line
 			end
 			puts "========================================="
+		end
+	end
+	
+	private 
+
+	def build_smart_lines
+		@smart_lines = []
+		@lines.each_with_index do |line, index|
+			smart_line = SmartLine.new(line, index + 1, 0, @variables)
+			@smart_lines << smart_line
 		end
 	end
 

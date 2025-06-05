@@ -32,7 +32,6 @@ class SmartLine
 
 	def rerender_line_for_file
 		"\t" * @num_of_tabs + @core_line_parsed
-		# "\t" * @num_of_tabs + @core_line
 	end
 
 	def debug	
