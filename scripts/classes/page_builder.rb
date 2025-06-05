@@ -1,5 +1,6 @@
 require_relative '../qtools/qstr'
-require_relative '../classes/dynamic_file'
+require_relative './dynamic_file'
+require_relative './file_builder'
 
 class PageBuilder
 	def initialize(page_title)
@@ -16,9 +17,9 @@ class PageBuilder
 
 	def create_page_tsx
 		@fbPage = FileBuilder.new("newPage", "../../src/pages/Page#{@page_pascal}.tsx")
-		@dfMain.add_variable('pageCamel', @page_camel)
-		@dfMain.add_variable('page_text', @page_text)
-		@dfMain.render_to_file
+		@fbPage.add_variable('pageCamel', @page_camel)
+		@fbPage.add_variable('page_text', @page_text)
+		@fbPage.render_to_file
 	end
 
 	def add_code_to_main_tsx
