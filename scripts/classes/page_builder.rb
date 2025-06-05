@@ -9,8 +9,16 @@ class PageBuilder
 	end
 
 	def create_page
+		self.create_page_tsx
 		# self.add_code_to_main_tsx	
 		# self.add_code_to_nav_tsx	
+	end
+
+	def create_page_tsx
+		@fbPage = FileBuilder.new("newPage", "../../src/pages/Page#{@page_pascal}.tsx")
+		@dfMain.add_variable('pageCamel', @page_camel)
+		@dfMain.add_variable('page_text', @page_text)
+		@dfMain.render_to_file
 	end
 
 	def add_code_to_main_tsx
