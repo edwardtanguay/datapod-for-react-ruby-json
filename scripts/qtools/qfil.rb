@@ -4,34 +4,34 @@ require_relative './qstr'
 
 module QFil
 
-	def self.get_lines_from_file(relativePathAndFileName)
-		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
+	def self.get_lines_from_file(pathAndFileName)
+		relativePathAndFileName = self.convert_path_and_file_name_to_relative(pathAndFileName)
 		begin
-			file_content = File.read(pathAndFileName)
+			file_content = File.read(relativePathAndFileName)
 			file_content.split(/\r?\n/)
 		rescue => error
-			QCli.message("Error reading file at #{pathAndFileName}: #{error.message}", "error")
+			QCli.message("Error reading file at #{relativePathAndFileName}: #{error.message}", "error")
 			[]
 		end
 	end
 
-	def self.write_text_block_to_file(relativePathAndFileName, text)
-		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
-		File.write(pathAndFileName, text)
+	def self.write_text_block_to_file(pathAndFileName, text)
+		relativePathAndFileName = self.convert_path_and_file_name_to_relative(pathAndFileName)
+		File.write(relativePathAndFileName, text)
 	end
 
-	def self.write_lines_to_file(relativePathAndFileName, lines)
-		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
+	def self.write_lines_to_file(pathAndFileName, lines)
+		relativePathAndFileName = self.convert_path_and_file_name_to_relative(pathAndFileName)
 		begin
-			File.open(pathAndFileName, 'w') do |file|
+			File.open(relativePathAndFileName, 'w') do |file|
 				lines.each { |line| file.puts(line) }
 			end
 		rescue => error
-			QCli.message("Error writing to file at #{pathAndFileName}: #{error.message}", "error")
+			QCli.message("Error writing to file at #{relativePathAndFileName}: #{error.message}", "error")
 		end
 	end
 
-	def self.rebase_to_root(pathAndFileName)
+	def self.convert_path_and_file_name_to_relative(pathAndFileName)
 		if pathAndFileName.start_with?('scripts/')
 			pathAndFileName.gsub('scripts/', '../')
 		else
@@ -40,19 +40,19 @@ module QFil
 	end
 
 	# deletes a file at the specified path
-	def self.delete_file(relativePathAndFileName)
-		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
+	def self.delete_file(pathAndFileName)
+		relativePathAndFileName = self.convert_path_and_file_name_to_relative(pathAndFileName)
 		begin
-			File.delete(pathAndFileName)
+			File.delete(relativePathAndFileName)
 		rescue => error
-			QCli.message("Error deleting file at #{pathAndFileName}: #{error.message}", "error")
+			QCli.message("Error deleting file at #{relativePathAndFileName}: #{error.message}", "error")
 		end
 	end
 
 	# checks if a file exists at the specified path
-	def self.file_exists?(relativePathAndFileName)
-		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
-		File.exist?(pathAndFileName)
+	def self.file_exists?(pathAndFileName)
+		relativePathAndFileName = self.rebase_to_root(pathAndFileName)
+		File.exist?(relativePathAndFileName)
 	end	
 
 end
