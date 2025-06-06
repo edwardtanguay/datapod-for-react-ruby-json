@@ -7,8 +7,8 @@ if ARGV.length < 1
   exit
 else
 	page_title = ARGV[0];
-	page = PageBuilder.new(page_title)
-	page.create_page
+	pb = PageBuilder.new(page_title)
+	pb.create_page	
 end
 
 

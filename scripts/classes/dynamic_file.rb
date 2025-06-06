@@ -18,6 +18,7 @@ class DynamicFile
 		@variables = {}
 		self.init_state
 		self.build_smart_lines
+		
 	end
 
 	def add_variable(name, value)
@@ -51,7 +52,6 @@ class DynamicFile
 			end
 		end
 		puts "---"
-		QCli.message("DynamicFile debug complete", "success")
 	end
 
 	def build_line_marker(markerLineIdCode)

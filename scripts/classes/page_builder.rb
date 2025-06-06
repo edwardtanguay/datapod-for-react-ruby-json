@@ -1,6 +1,7 @@
 require_relative '../qtools/qstr'
 require_relative './dynamic_file'
 require_relative './file_builder'
+require_relative './debug_manager'
 
 class PageBuilder
 	def initialize(page_title)
@@ -41,5 +42,18 @@ class PageBuilder
 		@dfMain.add_variable('pageCamel', @page_camel)
 		@dfMain.add_block_before_marker('navEntryArea', "navEntry#{@page_pascal}", 'navEntryBlock')
 		@dfMain.rerender_to_file
+	end
+
+	def debug(mode = "display")
+		dm = DebugManager.new("PageBuilder")
+		dm.add_line("Page Title: #{@page_title}")
+		dm.add_line("Page Pascal: #{@page_pascal}")
+		dm.add_line("Page Camel: #{@page_camel}")
+		dm.add_line("Page Text: #{@page_text}")
+		if(mode == "display")
+			dm.render
+		else 
+			return dm.render("text")
+		end
 	end
 end
