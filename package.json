@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "vite --port 4712 --open",
 		"cp": "cd scripts/commands && ruby create_page.rb",
+		"dp": "cd scripts/commands && ruby delete_page.rb",
 		"pd": "cd scripts/commands && ruby parse_data.rb",
 		"testn": "cd scripts/tests && ruby cli_test_notation.rb",
 		"learn": "cd scripts/commands && ruby cli_learn.rb",

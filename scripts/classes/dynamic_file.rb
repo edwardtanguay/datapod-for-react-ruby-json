@@ -79,6 +79,28 @@ class DynamicFile
 			QCli.message("markerAreaIdCode not found: #{markerAreaIdCode}", "error")
 		end
 	end
+	
+	def delete_block_with_marker(marker)
+		startMarker = "#{marker}.begin"
+		endMarker = "#{marker}.end"
+		startIndex = @smart_lines.index { |smart_line| smart_line.marker == startMarker }
+		endIndex = @smart_lines.index { |smart_line| smart_line.marker == endMarker }
+		if startIndex && endIndex
+			@smart_lines.slice!(startIndex..endIndex)
+		else
+			QCli.message("marker not found, could not delete: #{marker}", "error")
+		end
+	end
+
+	def delete_line_with_marker(marker)
+		@smart_lines.each do |smart_line|
+			if smart_line.marker == marker
+				@smart_lines.delete(smart_line)
+				return
+			end
+		end
+		QCli.message("line marker not found, could not delete: #{marker}", "error")
+	end
 
 	def rerender_to_file
 		self.parse

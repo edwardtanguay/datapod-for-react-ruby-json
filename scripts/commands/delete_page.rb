@@ -1,14 +1,12 @@
 require_relative '../qtools/qcli'
-require_relative '../qtools/qdev'
 require_relative '../classes/page_manager'
 
 if ARGV.length < 1
-  QCli.message("Usage: npm run cp \"More Info\"", "info")
+  QCli.message("Usage for DELETE PAGE command:", "info")
+  QCli.message("npm run dp \"More Info\"", "check")
   exit
 else
 	page_title = ARGV[0];
 	pm = PageManager.new(page_title)
-	pm.create_page	
+	pm.delete_page
 end
-
-
