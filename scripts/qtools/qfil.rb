@@ -1,14 +1,11 @@
 require_relative './qcli'
+require_relative './qdev'
+require_relative './qstr'
 
 module QFil
-	# Reads a file and returns its lines as an array of strings.
-	#
-	# Example:
-	# lines = QFil.get_lines_from_file('../data/flashcards.txt')
-	#
-	# @param pathAndFileName [String] Path to the file to read
-	# @return [Array<String>] Array of lines from the file, or empty array if file cannot be read
-	def self.get_lines_from_file(pathAndFileName)
+
+	def self.get_lines_from_file(relativePathAndFileName)
+		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
 		begin
 			file_content = File.read(pathAndFileName)
 			file_content.split(/\r?\n/)
@@ -18,7 +15,13 @@ module QFil
 		end
 	end
 
-	def self.write_lines_to_file(pathAndFileName, lines)
+	def self.write_text_block_to_file(relativePathAndFileName, text)
+		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
+		File.write(pathAndFileName, text)
+	end
+
+	def self.write_lines_to_file(relativePathAndFileName, lines)
+		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
 		begin
 			File.open(pathAndFileName, 'w') do |file|
 				lines.each { |line| file.puts(line) }
@@ -28,8 +31,17 @@ module QFil
 		end
 	end
 
+	def self.rebase_to_root(pathAndFileName)
+		if pathAndFileName.start_with?('scripts/')
+			pathAndFileName.gsub('scripts/', '../')
+		else
+			"../../#{pathAndFileName}"
+		end	
+	end
+
 	# deletes a file at the specified path
-	def self.delete_file(pathAndFileName)
+	def self.delete_file(relativePathAndFileName)
+		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
 		begin
 			File.delete(pathAndFileName)
 		rescue => error
@@ -38,7 +50,8 @@ module QFil
 	end
 
 	# checks if a file exists at the specified path
-	def self.file_exists?(pathAndFileName)
+	def self.file_exists?(relativePathAndFileName)
+		pathAndFileName = self.rebase_to_root(relativePathAndFileName)
 		File.exist?(pathAndFileName)
 	end	
 

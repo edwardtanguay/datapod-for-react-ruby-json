@@ -6,7 +6,7 @@ class FileBuilder
 	def initialize(fileTemplate, newPagePathAndFileName)
 		@fileTemplate = fileTemplate
 		@newPagePathAndFileName = newPagePathAndFileName
-		@fileTemplatePathAndFileName = "../templates/fileTemplate_#{@fileTemplate}.txt"
+		@fileTemplatePathAndFileName = "scripts/templates/fileTemplate_#{@fileTemplate}.txt"
 
 		@variables = {}
 		self.init_state

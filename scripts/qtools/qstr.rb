@@ -94,4 +94,12 @@ module QStr
 		tabs = line[/\A\t*/].to_s.length
 		tabs
 	end
+
+	def self.chop_left(main, chunk) 
+		main.gsub(/^#{chunk}/, '')
+	end
+
+	def self.chop_right(main, chunk)
+		main.gsub(/#{chunk}$/, '')
+	end
 end

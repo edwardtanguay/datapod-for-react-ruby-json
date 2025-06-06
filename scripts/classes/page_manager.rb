@@ -10,7 +10,7 @@ class PageManager
 		@page_pascal = QStr.force_pascal_notation(page_title)
 		@page_camel = QStr.force_camel_notation(page_title)
 		@page_text = QStr.force_text_notation(page_title)
-		@page_tsx_page_and_file_name = "../../src/pages/Page#{@page_pascal}.tsx"
+		@page_tsx_page_and_file_name = "src/pages/Page#{@page_pascal}.tsx"
 		@main_tsx_import_line_marker = "importPage#{@page_pascal}"
 		@main_tsx_router_block_marker = "routerEntry#{@page_pascal}"
 		@nav_tsx_entry_block_marker = "navEntry#{@page_pascal}"
@@ -33,13 +33,13 @@ class PageManager
 	end
 
 	def delete_code_from_nav_tsx
-		@dfMain = DynamicFile.new('../../src/components/Nav.tsx')
+		@dfMain = DynamicFile.new('src/components/Nav.tsx')
 		@dfMain.delete_block_with_marker(@nav_tsx_entry_block_marker)
 		@dfMain.rerender_to_file
 	end
 
 	def delete_code_from_main_tsx
-		@dfMain = DynamicFile.new('../../src/main.tsx')
+		@dfMain = DynamicFile.new('src/main.tsx')
 		@dfMain.delete_line_with_marker(@main_tsx_import_line_marker)
 		@dfMain.delete_block_with_marker(@main_tsx_router_block_marker)
 		@dfMain.rerender_to_file
@@ -54,7 +54,7 @@ class PageManager
 	end
 
 	def add_code_to_main_tsx
-		@dfMain = DynamicFile.new('../../src/main.tsx')
+		@dfMain = DynamicFile.new('src/main.tsx')
 		@dfMain.add_variable('pageTitle', @page_title)
 		@dfMain.add_variable('pagePascal', @page_pascal)
 		@dfMain.add_variable('pageCamel', @page_camel)
@@ -64,7 +64,7 @@ class PageManager
 	end
 
 	def add_code_to_nav_tsx
-		@dfMain = DynamicFile.new('../../src/components/Nav.tsx')
+		@dfMain = DynamicFile.new('src/components/Nav.tsx')
 		@dfMain.add_variable('pageTitle', @page_title)
 		@dfMain.add_variable('pagePascal', @page_pascal)
 		@dfMain.add_variable('pageCamel', @page_camel)

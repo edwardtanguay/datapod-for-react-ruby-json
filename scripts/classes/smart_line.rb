@@ -9,7 +9,7 @@ class SmartLine
 	def initialize(line, line_number = 0, num_of_tabs = 0, variables = {})
 		@line = line
 		@core_line = line.strip
-		@core_line_parsed = "nnn"
+		@core_line_parsed = ""
 		@line_number = line_number
 		if num_of_tabs == 0
 			@num_of_tabs = QStr.get_number_of_preceding_tabs(line)

@@ -11,7 +11,7 @@ class SmartBlock
 	end
 
 	def init_state
-		@lines = QFil.get_lines_from_file("../templates/blockTemplate_#{@blockTemplateIdCode}.txt")
+		@lines = QFil.get_lines_from_file("scripts/templates/blockTemplate_#{@blockTemplateIdCode}.txt")
 		self.build_smart_lines
 	end
 	

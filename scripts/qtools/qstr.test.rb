@@ -129,3 +129,26 @@ class TestGetNumberOfPrecedingTabs < Minitest::Test
 	end
 end
 
+class TestChopLeft < Minitest::Test
+	def test_chop_left
+		test_cases = [
+			{expected: "Hello World", main: "Hello World", chunk: "nn"},
+			{expected: "Hello World", main: "nnHello World", chunk: "nn"},
+		]	
+		test_cases.each do |test_case|
+			assert_equal test_case[:expected], QStr.chop_left(test_case[:main], test_case[:chunk])
+		end
+	end
+end
+
+class TestChopRight < Minitest::Test
+	def test_chop_right
+		test_cases = [
+			{expected: "Hello World", main: "Hello World", chunk: "nn"},
+			{expected: "Hello World", main: "Hello Worldnn", chunk: "nn"},
+		]	
+		test_cases.each do |test_case|
+			assert_equal test_case[:expected], QStr.chop_right(test_case[:main], test_case[:chunk])
+		end
+	end
+end
