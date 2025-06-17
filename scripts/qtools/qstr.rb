@@ -79,14 +79,14 @@ module QStr
 	def self.force_snake_notation(term)
 		r = term
 		r = self.force_text_notation(r)
-		r = r.gsub(' ', '-')
+		r = r.gsub(' ', '_')
 		r	
 	end
 
 	def self.force_kebab_notation(term)
 		r = term
 		r = self.force_text_notation(r)
-		r = r.gsub(' ', '_')
+		r = r.gsub(' ', '-')
 		r	
 	end
 

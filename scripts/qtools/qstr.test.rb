@@ -97,7 +97,7 @@ class TestForceSnakeNotation < Minitest::Test
 	def test_force_snake_notation
 		inputs = ["read file", "Read File", "readFile", "ReadFile", "read-file", "read_file"]
 		inputs.each do |input|
-			assert_equal "read-file", QStr.force_snake_notation(input) 
+			assert_equal "read_file", QStr.force_snake_notation(input) 
 		end
 	end
 end
@@ -106,7 +106,7 @@ class TestForceKebabNotation < Minitest::Test
 	def test_force_kebab_notation
 		inputs = ["read file", "Read File", "readFile", "ReadFile", "read-file", "read_file"]
 		inputs.each do |input|
-			assert_equal "read_file", QStr.force_kebab_notation(input) 
+			assert_equal "read-file", QStr.force_kebab_notation(input) 
 		end
 	end
 end
