@@ -1,4 +1,4 @@
 {
-	idCode: "@@pageCamel",
+	idCode: "@@pageSnake",
 	title: "@@pageTitle",
 },

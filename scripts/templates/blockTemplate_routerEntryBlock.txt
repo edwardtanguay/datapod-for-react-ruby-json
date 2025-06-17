@@ -1,4 +1,4 @@
 {
-	path: "@@pageCamel",
+	path: "@@pageSnake",
 	element: <Page@@pagePascal />,
 },
