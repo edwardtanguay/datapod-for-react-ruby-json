@@ -1,0 +1,33 @@
+body {
+	font-family: monospace;
+	background-color: #333;
+	padding: 1rem; 
+	font-size: 1rem;
+}
+
+p {
+	border-radius: .2rem;
+	background-color: brown;
+	color: #fff;
+	height: auto;
+	padding: .3rem .4rem;
+}
+
+.parsedDpodBlock {
+	border: 1px solid #555;
+	border-radius: .5rem;
+	background-color: #000;
+	width: fit-content;
+	max-width: 20rem;
+	display: flex;
+	flex-direction: column;
+	gap: .4rem;
+	padding: .4rem;
+}
+
+.content {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}

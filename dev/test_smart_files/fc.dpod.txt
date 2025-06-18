@@ -1,0 +1,95 @@
+** Flashcards
+Category
+Front
+Back
+
+==flashcard
+it
+[[
+uscire
+entrare
+]]
+[[
+come out
+come in
+]]
+
+// comment
+[[
+This is a long comment.
+
+It has many sections.
+]]
+important
+
+==flashcard
+nl
+welkom
+welcome
+
+==flashcard
+it
+[[
+111
+222
+333
+]]
+[[
+ones
+twos
+three
+four
+]]
+
+==flashcard
+es
+this has certain advantages
+est tiene ciertas ventajas
+
+==flashcard
+es
+in such a way that
+de tal manera que
+
+==flashcard
+it
+it is astounding how
+è sorprendente come
+
+==flashcard
+it
+this is surprising
+è sorprendente
+
+==flashcard
+it
+this is very surprising
+è molti sorprendente
+
+// this is a comment
+
+==flashcard
+it
+it is astounding how
+è sorprendente come222
+
+}} this is a command
+
+==flashcard
+it
+this is surprising
+222è sorprendente333
+
+// a note at the end
+
+==person
+Jane
+Austen
+[[
+Jane Austen (1775–1817) was an English novelist known for her six major novels, which critique and comment on the British landed gentry at the end of the 18th century. Her works are notable for their wit, social observation, and strong female protagonists.
+
+This is the only instance of “doleful” in her major novels, and it's used by the narrator (from Emma's point of view) to describe Emma’s earlier disappointment—highlighting Austen’s precise and slightly ironic tone.
+]]
+
+
+

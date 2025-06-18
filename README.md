@@ -6,6 +6,8 @@ Version 0.0.2 - Create-Page and Delete-Page CLI commands work:
 
 ![dpodrubycreatepages](https://github.com/user-attachments/assets/50e77d90-7078-40c2-8aec-77f764ebeddd)
 
+![generic-multipline-parsing](https://github.com/user-attachments/assets/ca10e78a-5f76-4099-a69a-fb1b17b07199)
+
 PERMALINK: https://github.com/edwardtanguay/datapod-for-react-ruby-json
 
 ## Ruby installation

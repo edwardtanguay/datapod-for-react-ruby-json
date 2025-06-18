@@ -1,0 +1,29 @@
+** Flashcards
+Category
+Front
+Back
+
+==flashcard
+it
+and it will take some time222
+e ci vorrà del tempo222
+
+==flashcard
+it
+this will ensure that you get
+cìo garantirà di ottenere
+
+==flashcard
+es
+this has certain advantages
+est tiene ciertas ventajas
+
+==flashcard
+es
+in such a way that
+de tal manera que
+
+==flashcard
+it
+it is astounding how
+è sorprendente come

@@ -8,6 +8,7 @@
 		"cp": "cd scripts/commands && ruby create_page.rb",
 		"dp": "cd scripts/commands && ruby delete_page.rb",
 		"pd": "cd scripts/commands && ruby parse_data.rb",
+		"gpf": "cd scripts/commands && ruby generic_parse_file.rb",
 		"gh": "git log --pretty=format:\"%ad | %h | %s\" --date=format:\"%Y-%m-%d %H:%M:%S\"",
 		"devtest": "cd scripts/commands && ruby cli_devtest.rb",
 		"test": "cd scripts/qtools && ruby qstr.test.rb",
